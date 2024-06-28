@@ -1,0 +1,27 @@
+{
+  "name": "mctc-app",
+  "version": "1.0.0",
+  "description": "mechtech.dev",
+  "main": "hello.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \\\"error: no test specified\\\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/m4Ch2m3Ch/McTc"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Samantha Mech",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "pokedex-promise-v2": "^4.2.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

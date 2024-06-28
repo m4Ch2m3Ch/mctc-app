@@ -1,0 +1,168 @@
+@use "variables" as v;
+
+$colors: (
+    "baseColor": #2f4454,
+    "darkRed": #2e151b,
+    "pink": #da7b93,
+    "green": #376e6f,
+    "gray": #1c3334
+);
+
+$baseColor: #2f4454;
+$darkRed: #2e151b;
+$pink: #da7b93;
+$green: #376e6f;
+$gray: #1c3334;
+
+$colorVariations: (
+    lightness: (
+        "lighter": 30%,
+        "light": 50%,
+        "lightest": 90%
+    ),
+    blackness: (
+        "darker": 30%,
+        "dark": 50%,
+        "darkest": 70%
+    )
+);
+
+@each $name, $colorValue in $colors {
+    .#{$name} {
+        color: $colorValue;
+    }
+
+    .#{$name}-bg {
+        background-color: $colorValue;
+    }
+
+    @each $scaleType, $variant in $colorVariations {
+        // $level = name of shade, $value = percentage
+        @each $level, $value in $variant {
+            @if $scaleType == "lightness" {
+                .#{$name}-#{$level} {
+                    color: scale-color($color: $colorValue, $lightness: $value);
+                }
+
+                .#{$name}-#{$level}-bg {
+                    background-color: scale-color($color: $colorValue, $lightness: $value);
+                }
+            } @else if $scaleType == "blackness" {
+                .#{$name}-#{$level} {
+                    color: scale-color($color: $colorValue, $blackness: $value);
+                }
+
+                .#{$name}-#{$level}-bg {
+                    background-color: scale-color($color: $colorValue, $blackness: $value);
+                }
+            }
+        }
+    }
+}
+
+body {
+    background: hsla(48, 100%, 82%, 1);
+
+    background: linear-gradient(135deg, hsla(48, 100%, 82%, 1) 48%, hsla(48, 100%, 50%, 1) 100%);
+
+    color: #0075be;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.tableContainer {
+    background: #fff;
+    border: solid 1px rgba(0, 0, 0, 0.08);
+    border-radius: 0.25rem !important;
+    filter: drop-shadow(1px 2px 3px hsl(0, 0%, 50%));
+}
+
+.dt-paging .pagination {
+    .dt-paging-button.page-item {
+        &.active {
+            .page-link {
+                background-color: #0dcaf0;
+                color: black;
+            }
+        }
+
+        .page-link {
+            border-radius: 0.5rem;
+            background-color: #fff;
+            height: 2.125rem;
+            width: 2.125rem;
+            color: #000;
+            border: 1px solid transparent;
+            font-size: 1.1rem;
+            margin: 0 0.1rem;
+            display: flex;
+            align-items: center;
+            transition: filter 0.14s ease-in-out;
+            justify-content: center;
+
+            &.previous,
+            &.next,
+            &.last,
+            &.first {
+                font-family: sans-serif;
+                color: #525051;
+                font-size: 1.4rem;
+                background-color: #fff;
+                border-radius: 1rem;
+                filter: drop-shadow(1px 2px 3px hsl(0, 0%, 80%));
+
+                &:hover {
+                    filter: drop-shadow(1px 2px 3px hsl(0, 0%, 50%));
+                    color: #376e6f;
+                }
+
+                &[aria-disabled="true"] {
+                    filter: drop-shadow(1px 2px 3px hsl(0, 0%, 90%));
+                    color: #bbb;
+                }
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &:hover {
+                filter: drop-shadow(1px 2px 3px hsl(0, 0%, 80%));
+            }
+        }
+    }
+}
+
+.dt-info,
+.dt-length {
+    font-size: 0.85em;
+}
+
+.dataTable > thead > tr > th > .form-select,
+.dt-paging .pagination > .form-select {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    font-family: "Open Sans";
+    font-size: 0.875rem;
+}
+
+div.dt-container > div.row > div.col-md-auto {
+    display: flex;
+    align-items: baseline;
+
+    div {
+        margin: 0 1rem;
+    }
+}
+
+div.dt-processing > div {
+    display: none;
+}
+
+button#btnClear {
+    visibility: hidden;
+}

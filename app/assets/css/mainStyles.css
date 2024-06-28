@@ -1,0 +1,385 @@
+:root {
+  --mt-blue: #0d6efd;
+  --mt-indigo: #6610f2;
+  --mt-purple: #6f42c1;
+  --mt-pink: #d63384;
+  --mt-red: #dc3545;
+  --mt-orange: #fd7e14;
+  --mt-yellow: #ffc107;
+  --mt-green: #198754;
+  --mt-teal: #20c997;
+  --mt-cyan: #0dcaf0;
+  --mt-black: #000;
+  --mt-white: #fff;
+  --mt-gray: #6c757d;
+}
+
+.baseColor {
+  color: #2f4454;
+}
+
+.baseColor-bg {
+  background-color: #2f4454;
+}
+
+.baseColor-lighter {
+  color: #587f9d;
+}
+
+.baseColor-lighter-bg {
+  background-color: #587f9d;
+}
+
+.baseColor-light {
+  color: #85a4bb;
+}
+
+.baseColor-light-bg {
+  background-color: #85a4bb;
+}
+
+.baseColor-lightest {
+  color: #e7edf1;
+}
+
+.baseColor-lightest-bg {
+  background-color: #e7edf1;
+}
+
+.baseColor-darker {
+  color: #2f363b;
+}
+
+.baseColor-darker-bg {
+  background-color: #2f363b;
+}
+
+.baseColor-dark {
+  color: #2e2e2e;
+}
+
+.baseColor-dark-bg {
+  background-color: #2e2e2e;
+}
+
+.baseColor-darkest {
+  color: #2b2b2b;
+}
+
+.baseColor-darkest-bg {
+  background-color: #2b2b2b;
+}
+
+.darkRed {
+  color: #2e151b;
+}
+
+.darkRed-bg {
+  background-color: #2e151b;
+}
+
+.darkRed-lighter {
+  color: #893f51;
+}
+
+.darkRed-lighter-bg {
+  background-color: #893f51;
+}
+
+.darkRed-light {
+  color: #ba677b;
+}
+
+.darkRed-light-bg {
+  background-color: #ba677b;
+}
+
+.darkRed-lightest {
+  color: #f1e1e5;
+}
+
+.darkRed-lightest-bg {
+  background-color: #f1e1e5;
+}
+
+.darkRed-darker {
+  color: #201518;
+}
+
+.darkRed-darker-bg {
+  background-color: #201518;
+}
+
+.darkRed-dark {
+  color: #171515;
+}
+
+.darkRed-dark-bg {
+  background-color: #171515;
+}
+
+.darkRed-darkest {
+  color: #141414;
+}
+
+.darkRed-darkest-bg {
+  background-color: #141414;
+}
+
+.pink {
+  color: #da7b93;
+}
+
+.pink-bg {
+  background-color: #da7b93;
+}
+
+.pink-lighter {
+  color: #e5a3b3;
+}
+
+.pink-lighter-bg {
+  background-color: #e5a3b3;
+}
+
+.pink-light {
+  color: #edbdc9;
+}
+
+.pink-light-bg {
+  background-color: #edbdc9;
+}
+
+.pink-lightest {
+  color: #fbf2f4;
+}
+
+.pink-lightest-bg {
+  background-color: #fbf2f4;
+}
+
+.pink-darker {
+  color: #997b82;
+}
+
+.pink-darker-bg {
+  background-color: #997b82;
+}
+
+.pink-dark {
+  color: #757575;
+}
+
+.pink-dark-bg {
+  background-color: #757575;
+}
+
+.pink-darkest {
+  color: #646464;
+}
+
+.pink-darkest-bg {
+  background-color: #646464;
+}
+
+.green {
+  color: #376e6f;
+}
+
+.green-bg {
+  background-color: #376e6f;
+}
+
+.green-lighter {
+  color: #5eaeaf;
+}
+
+.green-lighter-bg {
+  background-color: #5eaeaf;
+}
+
+.green-light {
+  color: #8cc5c6;
+}
+
+.green-light-bg {
+  background-color: #8cc5c6;
+}
+
+.green-lightest {
+  color: #e8f3f4;
+}
+
+.green-lightest-bg {
+  background-color: #e8f3f4;
+}
+
+.green-darker {
+  color: #374d4e;
+}
+
+.green-darker-bg {
+  background-color: #374d4e;
+}
+
+.green-dark {
+  color: #373738;
+}
+
+.green-dark-bg {
+  background-color: #373738;
+}
+
+.green-darkest {
+  color: #333333;
+}
+
+.green-darkest-bg {
+  background-color: #333333;
+}
+
+.gray {
+  color: #1c3334;
+}
+
+.gray-bg {
+  background-color: #1c3334;
+}
+
+.gray-lighter {
+  color: #498588;
+}
+
+.gray-lighter-bg {
+  background-color: #498588;
+}
+
+.gray-light {
+  color: #73b1b4;
+}
+
+.gray-light-bg {
+  background-color: #73b1b4;
+}
+
+.gray-lightest {
+  color: #e3eff0;
+}
+
+.gray-lightest-bg {
+  background-color: #e3eff0;
+}
+
+.gray-darker {
+  color: #1c2424;
+}
+
+.gray-darker-bg {
+  background-color: #1c2424;
+}
+
+.gray-dark {
+  color: #1c1c1c;
+}
+
+.gray-dark-bg {
+  background-color: #1c1c1c;
+}
+
+.gray-darkest {
+  color: #1b1b1b;
+}
+
+.gray-darkest-bg {
+  background-color: #1b1b1b;
+}
+
+body {
+  background: hsl(48, 100%, 82%);
+  background: linear-gradient(135deg, hsl(48, 100%, 82%) 48%, hsl(48, 100%, 50%) 100%);
+  color: #0075be;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.tableContainer {
+  background: #fff;
+  border: solid 1px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem !important;
+  filter: drop-shadow(1px 2px 3px hsl(0, 0%, 50%));
+}
+
+.dt-paging .pagination .dt-paging-button.page-item.active .page-link {
+  background-color: #0dcaf0;
+  color: black;
+}
+.dt-paging .pagination .dt-paging-button.page-item .page-link {
+  border-radius: 0.5rem;
+  background-color: #fff;
+  height: 2.125rem;
+  width: 2.125rem;
+  color: #000;
+  border: 1px solid transparent;
+  font-size: 1.1rem;
+  margin: 0 0.1rem;
+  display: flex;
+  align-items: center;
+  transition: filter 0.14s ease-in-out;
+  justify-content: center;
+}
+.dt-paging .pagination .dt-paging-button.page-item .page-link.previous, .dt-paging .pagination .dt-paging-button.page-item .page-link.next, .dt-paging .pagination .dt-paging-button.page-item .page-link.last, .dt-paging .pagination .dt-paging-button.page-item .page-link.first {
+  font-family: sans-serif;
+  color: #525051;
+  font-size: 1.4rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  filter: drop-shadow(1px 2px 3px hsl(0, 0%, 80%));
+}
+.dt-paging .pagination .dt-paging-button.page-item .page-link.previous:hover, .dt-paging .pagination .dt-paging-button.page-item .page-link.next:hover, .dt-paging .pagination .dt-paging-button.page-item .page-link.last:hover, .dt-paging .pagination .dt-paging-button.page-item .page-link.first:hover {
+  filter: drop-shadow(1px 2px 3px hsl(0, 0%, 50%));
+  color: #376e6f;
+}
+.dt-paging .pagination .dt-paging-button.page-item .page-link.previous[aria-disabled=true], .dt-paging .pagination .dt-paging-button.page-item .page-link.next[aria-disabled=true], .dt-paging .pagination .dt-paging-button.page-item .page-link.last[aria-disabled=true], .dt-paging .pagination .dt-paging-button.page-item .page-link.first[aria-disabled=true] {
+  filter: drop-shadow(1px 2px 3px hsl(0, 0%, 90%));
+  color: #bbb;
+}
+.dt-paging .pagination .dt-paging-button.page-item .page-link:focus {
+  box-shadow: none;
+}
+.dt-paging .pagination .dt-paging-button.page-item .page-link:hover {
+  filter: drop-shadow(1px 2px 3px hsl(0, 0%, 80%));
+}
+
+.dt-info,
+.dt-length {
+  font-size: 0.85em;
+}
+
+.dataTable > thead > tr > th > .form-select,
+.dt-paging .pagination > .form-select {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  font-family: "Open Sans";
+  font-size: 0.875rem;
+}
+
+div.dt-container > div.row > div.col-md-auto {
+  display: flex;
+  align-items: baseline;
+}
+div.dt-container > div.row > div.col-md-auto div {
+  margin: 0 1rem;
+}
+
+div.dt-processing > div {
+  display: none;
+}
+
+button#btnClear {
+  visibility: hidden;
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokemon Datatable</title>
+    <script src="https://kit.fontawesome.com/e00c91e415.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <link
+        href="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.0.8/af-2.7.0/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/b-print-3.0.2/cr-2.0.3/date-1.5.2/fc-5.0.1/fh-4.0.1/kt-2.12.1/r-3.0.2/rg-1.5.0/rr-1.5.0/sc-2.4.3/sb-1.7.1/sp-2.3.1/sl-2.0.3/sr-1.4.1/datatables.min.css"
+        rel="stylesheet" />
+
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.0.8/af-2.7.0/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/b-print-3.0.2/cr-2.0.3/date-1.5.2/fc-5.0.1/fh-4.0.1/kt-2.12.1/r-3.0.2/rg-1.5.0/rr-1.5.0/sc-2.4.3/sb-1.7.1/sp-2.3.1/sl-2.0.3/sr-1.4.1/datatables.min.js"></script>
+    <script type="text/javascript" src="javascripts/dataTables/pagination.js"></script>
+    <script type="text/javascript" src="javascripts/datatables/dataTableSettings.js"></script>
+    <link rel="stylesheet" href="assets/css/mainStyles.css?v=2" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+        integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module">
+        import { customTable } from "/javascripts/datatables/customTable.js";
+        window.customTable = new customTable();
+    </script>
+</head>
+
+<body>
+    <section class="my-5">
+        <div class="container">
+            <h1 class="mb-4">Pokedex</h1>
+        </div>
+        <div class="container">
+            <div class="tableContainer p-3">
+                <table id="pokemonTable" class="table table-hover table-standard w-100">
+                    <thead>
+                        <tr>
+                            <th>Pokedex Number</th>
+                            <th>Icon</th>
+                            <th>Name</th>
+                            <th>Height (m) </th>
+                            <th>Weight (kg)</th>
+                            <th>Primary Type</th>
+                            <th>Secondary Type</th>
+                            <th>Base Experience</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script id="templateChildRow" type="text/x-handlebars-template">
+        <div class="mt-3">
+            <h4 class="text-capitalize">{{name}}</h4>
+        </div>
+        <div class="d-flex justify-content-center">
+            <figure class="figure">
+                <img class="figure-img" height="200px" src="{{sprites.front_default}}" alt="default">
+                <figcaption class="figure-caption text-right">Default</figcaption>
+            </figure>
+            <figure class="figure">
+                <img class="figure-img" height="200px" src="{{sprites.front_shiny}}" alt="shiny">
+                <figcaption class="figure-caption text-right">Shiny</figcaption>
+
+            </figure>
+        </div>
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            window.customTable.columns = [
+                {
+                    data: "id",
+                },
+                {
+                    data: "icon",
+                    render: function (data, type, row) {
+                        return `<img height="50px" src="${data}" alt="icon" />`;
+                    },
+                },
+                {
+                    data: "name",
+                    render: function (data, type, row) {
+                        return data.charAt(0).toUpperCase() + data.slice(1);
+                    },
+
+                },
+                {
+                    data: "height",
+                    render: function (data, type, row) {
+                        return data / 10;
+                    },
+                },
+                {
+                    data: "weight",
+                    render: function (data, type, row) {
+                        return data / 10;
+                    },
+                },
+                {
+                    data: "type_primary",
+                    className: 'select-filter',
+                    render: function (data, type, row) {
+                        row.type_primary = data.charAt(0).toUpperCase() + data.slice(1);
+                        return row.type_primary;
+                    }
+                },
+                {
+                    data: "type_secondary",
+                    className: 'select-filter',
+                    render: function (data, type, row) {
+                        row.type_secondary = data.charAt(0).toUpperCase() + data.slice(1);
+                        return row.type_secondary;
+                    }
+                },
+                {
+                    data: "baseExperience",
+                },
+                {
+                    data: "",
+                    sorting: false,
+                    defaultContent: "",
+                    className: "no-search",
+                    render: function (data, type, row) {
+                        return '<i class="fa-regular fa-lg fa-square-plus p-2 open-child-row cursor-pointer"></i>';
+                    }
+                },
+
+
+            ];
+            window.customTable.tableName = "pokemonTable";
+
+            let appTable = window.customTable.createTable("/pokemon/data");
+
+            let tableContainer = document.getElementById("pokemonTable");
+
+            tableContainer.addEventListener("click", function (e) {
+                if (!e.target.classList.contains('open-child-row')) return;
+                let tr = e.target.closest('tr');
+                let row = appTable.row(tr);
+
+                if (row.child.isShown()) {
+                    // This row is already open - close it
+                    row.child.hide();
+                } else {
+                    // Open this row
+                    row.child(populateChildRowTemplate(row.data())).show();
+                    row.child().addClass('child-row')
+                }
+            });
+
+            function populateChildRowTemplate(rowData) {
+                let childRowTemplate = document.querySelector("#templateChildRow");
+                var template = Handlebars.compile(childRowTemplate.innerHTML);
+                return template(rowData);
+            }
+
+        });
+    </script>
+</body>
+
+</html>
