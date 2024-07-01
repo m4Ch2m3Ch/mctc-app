@@ -2,7 +2,7 @@ import Pokedex from "pokedex-promise-v2";
 
 class pokemonApi {
   constructor() {
-    this.P = new Pokedex(this.options);
+    this.P = new Pokedex();
   }
 
   async getPokemonData() {
@@ -11,14 +11,9 @@ class pokemonApi {
     try {
       const listResponse = await this.P.getPokemonsList(interval);
       let results = listResponse.results;
-      let typesList = [];
       const promises = results.map((result) =>
         this.P.getPokemonByName(result.name).then((pokemonResponse) => {
           let types = pokemonResponse.types.map((type) => type.type.name);
-
-          if (!typesList.includes(...types)) {
-            typesList.push(...types);
-          }
 
           return {
             ...result,

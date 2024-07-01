@@ -3,7 +3,7 @@ function getSettings() {
     page = Math.ceil(settings._iDisplayStart / settings._iDisplayLength),
     pages = Math.ceil(settings.fnRecordsDisplay() / settings._iDisplayLength),
     numbers = [],
-    screenWidth = screen.width,
+    screenWidth = window.innerWidth,
     userScreen = { xs: 340, sm: 380, md: 620, lg: 800 },
     addFirstLast = screenWidth <= userScreen.sm ? false : true,
     buttons =
@@ -17,7 +17,6 @@ function getSettings() {
     half = Math.floor(buttons / 2),
     before = addFirstLast ? 2 : 1,
     after = addFirstLast ? 1 : 0;
-
   return {
     page,
     pages,
